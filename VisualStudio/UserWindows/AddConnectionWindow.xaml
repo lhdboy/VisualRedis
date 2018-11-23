@@ -1,0 +1,32 @@
+﻿<Window x:Class="VisualRedis.UserWindows.AddConnectionWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:VisualRedis.UserWindows"
+        mc:Ignorable="d"
+        Title="创建新的 Redis 连接" Height="200" Width="450" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="3*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Text="连接名称"/>
+        <TextBox Name="connName" Grid.Row="1" Grid.Column="1" Padding="4" BorderBrush="Gray" BorderThickness="0.6" VerticalAlignment="Center" Margin="0,0,20,0"/>
+
+        <TextBlock Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Text="连接字符串"/>
+        <TextBox Name="connStr" Grid.Row="2" Grid.Column="1" Padding="4" BorderBrush="Gray" BorderThickness="0.6" VerticalAlignment="Center" Margin="0,0,20,0" />
+
+        <StackPanel Grid.Row="3" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Button Name="Test" Click="Test_Click" Width="100" Content="测试" Background="Transparent"/>
+            <Button Name="Save" Click="Save_Click" Margin="15,0,0,0" Width="100" Content="保存" Foreground="Blue" BorderBrush="Blue" Background="Transparent"/>
+        </StackPanel>
+    </Grid>
+</Window>

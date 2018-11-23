@@ -1,0 +1,56 @@
+﻿<UserControl x:Class="VisualRedis.UserControls.StringPage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:VisualRedis.UserControls"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock HorizontalAlignment="Center" Text="键名：" Margin="0,18,0,18"/>
+        <Grid Grid.Column="1" Margin="5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <TextBox Name="stringKey" IsReadOnly="True" Margin="0,0,6,0" VerticalAlignment="Center" Padding="4"/>
+            <Button Name="Copy" Click="Copy_Click" Grid.Column="1" Margin="3,0,3,0" Width="50" VerticalAlignment="Center" Content="复制" Background="#FFC7C7C7"/>
+            <Button Name="Refersh" Click="Refersh_Click"  Grid.Column="2" Margin="3,0,3,0" Width="50" VerticalAlignment="Center" Content="刷新" Background="#FF6BD1F0" BorderBrush="#FF007D99" Foreground="#FF002ECB"/>
+            <Button Name="Delete" Click="Delete_Click" Grid.Column="3" Margin="3,0,3,0" Width="50" VerticalAlignment="Center" Content="删除" Background="#FFFFABAB" Foreground="Red" BorderBrush="Red"/>
+        </Grid>
+
+        <StackPanel Margin="0,5,6,5" HorizontalAlignment="Right" Grid.Row="1" Grid.Column="1" Orientation="Horizontal">
+            <TextBox Name="TimeoutInput" Width="100" />
+            <Button Name="Timeout" Click="Timeout_Click" Width="130" Content="设置过期时间(ms)" Margin="3,0,0,0" Background="Transparent"/>
+            <Button Name="Save" Click="Save_Click" Width="80" Content="保存更改" Margin="16,0,0,0" Background="#FF0068FF" BorderBrush="Blue" Foreground="White"/>
+        </StackPanel>
+
+        <TextBlock Grid.Row="2" Text="键值：" Margin="30"/>
+        <TextBox Name="stringValue" AcceptsReturn="True" Padding="3" Margin="5" Grid.Row="2" Grid.Column="1"/>
+
+        <TextBlock Grid.Row="3" Text="属性：" Margin="0,20,0,20" HorizontalAlignment="Center"/>
+        <StackPanel Grid.Row="3" Grid.Column="1" Margin="6,0,0,0" VerticalAlignment="Center" Orientation="Horizontal">
+            <TextBlock Foreground="Gray" Text="DB Index："/>
+            <TextBlock Name="viewDbIndex" Text="--" Margin="6,0,0,0"/>
+
+            <TextBlock Foreground="Gray" Text="过期时间：" Margin="26,0,0,0"/>
+            <TextBlock Name="viewTimeout" Text="--" Margin="6,0,0,0"/>
+
+            <TextBlock Foreground="Gray" Text="大小（bytes）：" Margin="26,0,0,0"/>
+            <TextBlock Name="viewSize" Text="--" Margin="6,0,0,0"/>
+        </StackPanel>
+    </Grid>
+</UserControl>
