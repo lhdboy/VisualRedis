@@ -39,11 +39,6 @@ namespace VisualRedis.UserControls
             _connections = connections;
         }
 
-        private void OpenGithub_Click(object sender, RoutedEventArgs e)
-        {
-            Process.Start(new ProcessStartInfo("https://github.com/lhdboy"));
-        }
-
         private void CreateConnection_Click(object sender, RoutedEventArgs e)
         {
             AddConnectionWindow connectionWindow = new AddConnectionWindow(_connections);
@@ -54,11 +49,6 @@ namespace VisualRedis.UserControls
         private void ConnectionWindow_OnConnectionListUpdate(IList<Connection> connections)
         {
             OnConnectionListUpdate?.Invoke(connections);
-        }
-
-        private void FollowMe_Click(object sender, RoutedEventArgs e)
-        {
-            Process.Start(new ProcessStartInfo("https://weibo.com/930179151"));
         }
     }
 }

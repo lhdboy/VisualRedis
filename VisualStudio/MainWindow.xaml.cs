@@ -1,4 +1,5 @@
 ﻿using StackExchange.Redis;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+
 using VisualRedis.Models;
 using VisualRedis.UserControls;
 using VisualRedis.UserWindows;
@@ -141,7 +143,7 @@ namespace VisualRedis
                 }
                 else
                 {
-                    MessageBox.Show("你还没有连接，还断开连接干嘛哟！");
+                    MessageBox.Show("你还没有连接！");
                 }
             };
 
@@ -164,7 +166,7 @@ namespace VisualRedis
                 }
                 else
                 {
-                    MessageBox.Show("你还没有连接哟！");
+                    MessageBox.Show("你还没有连接！");
                 }
             };
 
@@ -179,7 +181,7 @@ namespace VisualRedis
                 }
                 else
                 {
-                    MessageBox.Show("你还没有连接哟！");
+                    MessageBox.Show("你还没有连接！");
                 }
             };
 
@@ -197,7 +199,7 @@ namespace VisualRedis
                 }
                 else
                 {
-                    MessageBox.Show("你还没有连接哟！");
+                    MessageBox.Show("你还没有连接！");
                 }
             };
 
@@ -225,7 +227,7 @@ namespace VisualRedis
                 }
                 else
                 {
-                    MessageBox.Show("你还没有连接哟！");
+                    MessageBox.Show("你还没有连接！");
                 }
             };
 
@@ -343,7 +345,7 @@ namespace VisualRedis
             deleteMenu.Header = "删除";
             deleteMenu.Click += (s, e) =>
             {
-                if (MessageBox.Show("大哥，你确定要删除这个key么？", "等一下", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+                if (MessageBox.Show("你确定要删除这个key么？", "等一下", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
                 {
                     connectionMultiplexersList[connectIndex].GetDatabase(dbIndex).KeyDelete(keyName);
 
@@ -373,7 +375,7 @@ namespace VisualRedis
             }
             else
             {
-                MessageBox.Show("已经连接了啊，干嘛还要连接，有病哦！");
+                MessageBox.Show("已经连接了啊！");
             }
         }
 
@@ -438,7 +440,9 @@ namespace VisualRedis
         {
             var server = GetConnectionServer(connection);
 
-            for (int i = 0; i < server.DatabaseCount; i++)
+            int dbCount = server.DatabaseCount == 0 ? 1 : server.DatabaseCount;
+
+            for (int i = 0; i < dbCount; i++)
             {
                 int dbIndex = i;
 

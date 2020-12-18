@@ -13,10 +13,8 @@
         </StackPanel>
         <StackPanel>
             <TextBlock Text="版本号：0.2.0" Foreground="Black" HorizontalAlignment="Center"/>
-            <TextBlock Text="作者：旋风小伙" Foreground="Black" HorizontalAlignment="Center"/>
+            <TextBlock Text="上海链湃信息技术有限公司" Foreground="Black" HorizontalAlignment="Center"/>
             <Button Name="CreateConnection" Content="创建新的 Redis 连接" Click="CreateConnection_Click" Padding="0,8,0,8" Margin="0,12,0,0" Background="Transparent" BorderThickness="1" BorderBrush="Gray"/>
-            <Button Name="OpenGithub" Content="访问项目Github主页" Click="OpenGithub_Click" Padding="0,8,0,8" Margin="0,12,0,0" Background="Transparent" BorderThickness="1" BorderBrush="Gray"/>
-            <Button Name="FollowMe" Content="关注我" Padding="0,8,0,8" Click="FollowMe_Click" Margin="0,12,0,0" Background="Transparent" BorderThickness="1" BorderBrush="Gray"/>
         </StackPanel>
     </StackPanel>
 </UserControl>

@@ -94,7 +94,7 @@ namespace VisualRedis.UserControls
 
         private void Delete_Click(object sender, RoutedEventArgs e)
         {
-            if (MessageBox.Show("大哥，你确定要删除这个key么？", "等一下", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+            if (MessageBox.Show("你确定要删除这个key么？", "等一下", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
             {
                 _connection.GetDatabase(_dbIndex).KeyDelete(_keyName);
 
@@ -165,7 +165,7 @@ namespace VisualRedis.UserControls
         {
             if (FieIdListView.SelectedIndex >= 0)
             {
-                if (MessageBox.Show("大哥，你确定要删除这行么？", "确认删除", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+                if (MessageBox.Show("你确定要删除这行么？", "确认删除", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
                 {
                     _connection.GetDatabase(_dbIndex).HashDelete(_keyName, FieIdList[FieIdListView.SelectedIndex].ToString());
                     MessageBox.Show("删除成功");
